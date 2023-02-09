@@ -1,5 +1,2 @@
 #!/bin/bash
 mkdir -p welcome/to/school
-[master ac7ac7f] script that creates the directories welcome/, welcome/to/ and welcome/to/school in the current directory
- 2 files changed, 3 insertions(+), 1 deletion(-)
- create mode 100755 0x00-shell_basics/102-tree
