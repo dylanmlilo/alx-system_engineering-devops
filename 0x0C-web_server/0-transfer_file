@@ -1,15 +1,20 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# This script transfers files from a client to a server
 
-if [ "$#" -ne 4 ]; then
-    echo "Usage: $0 PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
+PATH_TO_FILE="$1"
+IP="$2"
+USERNAME="$3"
+PATH_TO_SSH_KEY="$4"
+
+if [ $# -lt 3 ]; then
+    echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME [PATH_TO_SSH_KEY]"
     exit 1
 fi
 
-file_path="$1"
-server_ip="$2"
-username="$3"
-ssh_key="$4"
+scp_options="-o StrictHostKeyChecking=no"
 
-export "SCP_OPTIONS=-o StrictHostKeyChecking=no"
-
-scp -i "$ssh_key" "$file_path" "$username"@"$server_ip":~/
+if [ $# -eq 3 ]; then
+    scp $scp_options "$PATH_TO_FILE" "$USERNAME@$IP:~/"
+else
+    scp $scp_options -i "$PATH_TO_SSH_KEY" "$PATH_TO_FILE" "$USERNAME@$IP:~/"
+fi
