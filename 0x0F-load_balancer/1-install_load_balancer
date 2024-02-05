@@ -12,7 +12,7 @@ listen load-balance
         balance roundrobin
         option httpchk HEAD / HTTP/1.1\r\nHost:\ localhost
         option forwardfor
-        server 197838-web-01 34.239.207.21 check port 80
-        server 197838-web-02 54.236.225.49 check port 80
+        server 274815-web-01 100.25.103.95 check port 80
+        server 274815-web-02 100.24.72.43 check port 80
 " >> /etc/haproxy/haproxy.cfg
 sudo service haproxy restart
