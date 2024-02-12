@@ -1,6 +1,6 @@
 #!/usr/bin/env
 
-sudo apt intall ufw
+sudo apt install ufw
 
 sudo ufw disable
 
